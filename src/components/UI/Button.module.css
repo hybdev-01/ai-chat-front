@@ -1,0 +1,27 @@
+.btnWrapper {
+
+   padding: 10px;
+   text-align: center;
+
+   min-width: 120px;
+   min-height: 48px;
+
+   font-family: inherit;
+   font-size: 1.125rem;
+   font-weight: 400;
+   line-height: 100%;
+
+   border: none;
+   border-radius: 15px;
+
+   background-color: var(--primary);
+   color: white;
+
+   cursor: pointer;
+
+}
+
+.btnEmpty {
+   all: unset;
+   background-color: transparent;
+}
