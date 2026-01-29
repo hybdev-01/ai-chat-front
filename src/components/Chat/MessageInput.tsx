@@ -1,5 +1,5 @@
 import { TextArea } from "components/UI/TextArea";
-import { SendMessage } from "features/Chat/SendMessage";
+import { SendMessage } from "features/Chat/SendMessage/SendMessage";
 import { useState } from "react";
 
 interface MessageInputProps {
@@ -7,15 +7,21 @@ interface MessageInputProps {
 }
 
 export const MessageInput = ({ className }: MessageInputProps) => {
-  const [val, setVal] = useState("");
+  const [msg, setMsg] = useState("");
+
+  const onChangeHandler = (newMsg: string) => {
+    setMsg(newMsg);
+  };
+
+  const clearInput = () => setMsg("");
 
   return (
     <TextArea
       className={className}
-      value={val}
-      onChange={(e) => setVal(e.currentTarget.value)}
+      value={msg}
+      onChange={onChangeHandler}
       placeholder="Ask whatever you want"
-      leftButton={<SendMessage />}
+      leftButton={<SendMessage msg={msg} clearInput={clearInput} />}
     />
   );
 };

@@ -8,6 +8,7 @@ interface ButtonProps {
   children: ReactNode;
   title?: string;
   isEmpty?: boolean;
+  onClick: VoidFunction;
 }
 
 export const Button = ({
@@ -15,10 +16,12 @@ export const Button = ({
   children,
   title = "",
   isEmpty = false,
+  onClick,
 }: ButtonProps) => {
   return (
     <button
       title={title}
+      onClick={onClick}
       className={clsx(styles.btnWrapper, className, isEmpty && styles.btnEmpty)}
     >
       {children}

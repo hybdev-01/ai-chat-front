@@ -4,8 +4,8 @@
    text-align: center;
 
    svg>g>path:last-child {
-      fill: var(--second);
-      stroke: white;
+      fill: var(--fourth);
+      stroke: var(--second);
    }
 
    svg {

@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useId,
   useState,
   type ChangeEvent,
@@ -18,7 +19,7 @@ interface TextAreaProps {
   placeholder?: string;
   leftButton?: JSX.Element;
   rightButton?: ReactNode;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (newMsg: string) => void;
 }
 
 export const TextArea = ({
@@ -41,11 +42,16 @@ export const TextArea = ({
   };
 
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e);
-    if (!e.currentTarget.value.trim().length) {
+    const newValue = e.currentTarget.value;
+    onChange(newValue);
+  };
+
+  useEffect(() => {
+    if (!value.length) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsWrapped(false);
     }
-  };
+  }, [value, isWrapped]);
 
   return (
     <div
