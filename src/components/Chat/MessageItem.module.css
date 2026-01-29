@@ -1,0 +1,23 @@
+.itemWrapper {
+
+   display: inline-block;
+
+   &[dataType="sent"] {
+      max-width: 50%;
+   }
+
+}
+
+.msgReceived {
+
+   font-family: inherit;
+   font-size: 1.125rem;
+   font-weight: 400;
+   line-height: 20px;
+
+
+   white-space: pre-wrap;
+   word-break: break-word;
+   overflow-wrap: break-word;
+
+}

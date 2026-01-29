@@ -1,0 +1,23 @@
+.pageWrapper {
+
+   position: relative;
+
+   width: 100%;
+   height: 100vh;
+
+
+   .msgInput {
+
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+
+      margin: 0 auto;
+      margin-bottom: 20px;
+
+      width: 60%;
+
+   }
+}

@@ -1,0 +1,15 @@
+.sendMsgWrapper {
+
+   background-color: var(--primary);
+   text-align: center;
+
+   svg>g>path:last-child {
+      fill: var(--second);
+      stroke: white;
+   }
+
+   svg {
+      width: 30px;
+      height: 30px;
+   }
+}
