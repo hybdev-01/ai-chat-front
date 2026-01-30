@@ -23,9 +23,20 @@
    font-weight: 400;
    line-height: 20px;
 
-
    white-space: pre-wrap;
    /* word-break: break-word; */
    overflow-wrap: break-word;
+
+   code,
+   pre,
+   table {
+      display: inline-block;
+      width: 100%;
+
+      overflow-y: auto;
+      white-space: pre-wrap;
+      font-family: 'Fira Code', monospace;
+      font-size: 1rem;
+   }
 
 }

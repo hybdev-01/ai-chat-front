@@ -1,4 +1,5 @@
 import { TextArea } from "components/UI/TextArea";
+import { RecordMessage } from "features/Chat/RecordMessage/RecordMessage";
 import { SendMessage } from "features/Chat/SendMessage/SendMessage";
 import { useState } from "react";
 
@@ -22,6 +23,7 @@ export const MessageInput = ({ className }: MessageInputProps) => {
       onChange={onChangeHandler}
       placeholder="Ask whatever you want"
       leftButton={<SendMessage msg={msg} clearInput={clearInput} />}
+      rightButton={<RecordMessage onSendText={onChangeHandler} />}
     />
   );
 };

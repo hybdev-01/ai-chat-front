@@ -1,0 +1,11 @@
+.title {
+
+   white-space: pre-line;
+
+   text-align: center;
+
+   color: var(--primary);
+
+   font-size: 1.875rem;
+
+}
