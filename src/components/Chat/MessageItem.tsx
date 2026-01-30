@@ -1,6 +1,9 @@
 import { Card } from "components/UI/Card";
 import type { ReactNode } from "react";
 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import DotsIcon from "assets/icons/bouncing-dots.svg?react";
 
 import styles from "./MessageItem.module.css";
@@ -32,7 +35,9 @@ export const MessageItem = ({ type, children }: MessageItemProps) => {
 
   return (
     <li className={styles.itemWrapper} datatype={type}>
-      <pre className={styles.msgReceived}>{typedMsg}</pre>
+      <div className={styles.msgReceived}>
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{typedMsg}</ReactMarkdown>
+      </div>
     </li>
   );
 };

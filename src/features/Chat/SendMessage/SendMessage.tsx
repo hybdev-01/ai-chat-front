@@ -6,6 +6,7 @@ import styles from "./SendMessage.module.css";
 import { useAppDispatch } from "hooks/redux";
 import { addMessage } from "../chat-slice";
 import { nanoid } from "@reduxjs/toolkit";
+import { getChatMsg } from "services/chat-api";
 
 interface SendMessageProps {
   msg: string;
@@ -15,7 +16,7 @@ interface SendMessageProps {
 export const SendMessage = ({ msg, clearInput }: SendMessageProps) => {
   const dispatch = useAppDispatch();
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (msg.trim().length > 0) {
       dispatch(
         addMessage({
@@ -35,17 +36,18 @@ export const SendMessage = ({ msg, clearInput }: SendMessageProps) => {
       );
 
       clearInput();
+      const resp = await getChatMsg(msg);
 
-      setTimeout(() => {
+      if (resp !== null) {
         dispatch(
           addMessage({
-            date: new Date().toISOString(),
-            id: nanoid(5),
-            msg: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, asperiores iure. Natus quidem saepe, harum possimus ipsam recusandae ducimus! Tenetur iusto esse harum dolorum placeat, nihil explicabo culpa cum nulla?",
+            date: resp.created,
+            id: resp.id,
+            msg: resp.message,
             type: "received",
           })
         );
-      }, 3000);
+      }
     }
   };
 

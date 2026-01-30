@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useId,
   useState,
   type ChangeEvent,
@@ -44,14 +43,11 @@ export const TextArea = ({
   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = e.currentTarget.value;
     onChange(newValue);
-  };
 
-  useEffect(() => {
-    if (!value.length) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (!newValue.length) {
       setIsWrapped(false);
     }
-  }, [value, isWrapped]);
+  };
 
   return (
     <div
