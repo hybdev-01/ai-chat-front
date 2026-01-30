@@ -6,4 +6,5 @@ import tsConfigPaths from "vite-tsconfig-paths";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr(), tsConfigPaths()],
+  base: "/ai-chat-front",
 });
